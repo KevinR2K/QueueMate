@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const db = require("./config/database");
+const authRoutes = require("./routes/auth");
 
 const app = express();
 
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Allow JSON request bodies
 app.use(express.json());
+app.use("/api/auth", authRoutes);
 
 // Basic API health check
 app.get("/api/health", (req, res) => {
