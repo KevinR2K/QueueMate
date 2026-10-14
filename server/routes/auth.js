@@ -4,12 +4,12 @@ const db = require("../config/database");
 
 const router = express.Router();
 
-// Register a new user
+// Register a new user//
 router.post("/register", async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
 
-        // Check required fields
+        // Check required fields//
         if (!name || !email || !password) {
             return res.status(400).json({
                 success: false,
@@ -17,7 +17,7 @@ router.post("/register", async (req, res) => {
             });
         }
 
-        // Check if email already exists
+        // Check if email already exists//
         const [existingUsers] = await db.query(
             "SELECT id FROM users WHERE email = ?",
             [email]
@@ -30,13 +30,13 @@ router.post("/register", async (req, res) => {
             });
         }
 
-        // Hash password
+        // Hash password//
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Use customer as default role
+        // Use customer as default role//
         const userRole = role || "customer";
 
-        // Insert user
+        // Insert user//
         const [result] = await db.query(
             `INSERT INTO users (name, email, password, role)
              VALUES (?, ?, ?, ?)`,

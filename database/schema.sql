@@ -1,9 +1,9 @@
--- QueueMate database schema
+--QueueMate database schema--
 
 USE queuemate_db;
 
 
--- Users
+--Users--
 CREATE TABLE users (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE users (
 );
 
 
--- Businesses
+-- Businesses--
 CREATE TABLE businesses (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     owner_id INT UNSIGNED NOT NULL UNIQUE,
@@ -33,7 +33,7 @@ CREATE TABLE businesses (
 );
 
 
--- Services offered by businesses
+-- Services offered by businesses--
 CREATE TABLE services (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     business_id INT UNSIGNED NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE services (
 );
 
 
--- Customer appointments
+-- Customer appointments--
 CREATE TABLE appointments (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     customer_id INT UNSIGNED NOT NULL,
@@ -88,7 +88,7 @@ CREATE TABLE appointments (
 );
 
 
--- Virtual queue entries
+-- Virtual queue entries--
 CREATE TABLE queue_entries (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     customer_id INT UNSIGNED NOT NULL,

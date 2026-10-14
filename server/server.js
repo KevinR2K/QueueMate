@@ -8,7 +8,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-// Allow JSON request bodies
+// Allow JSON request bodies//
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 
@@ -20,7 +20,7 @@ app.get("/api/health", (req, res) => {
     });
 });
 
-// Test database connection
+// Test database connection//
 app.get("/api/db-test", async (req, res) => {
     try {
         const [rows] = await db.query("SELECT 1 AS connected");
@@ -40,7 +40,7 @@ app.get("/api/db-test", async (req, res) => {
     }
 });
 
-// Start the server
+// Start the server//
 app.listen(PORT, () => {
     console.log(`QueueMate server is running on port ${PORT}`);
 });
